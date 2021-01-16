@@ -7,8 +7,8 @@ import { join as joinPath } from 'path';
 import { format as formatUrl } from 'url';
 import './hook';
 import { initializeIpcHandlers, initializeIpcListeners } from './ipc-handlers';
-import { IpcRendererMessages } from '../common/ipc-messages';
-import { ProgressInfo } from 'builder-util-runtime';
+//import { IpcRendererMessages } from '../common/ipc-messages';
+//import { ProgressInfo } from 'builder-util-runtime';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -88,7 +88,7 @@ const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
 	app.quit();
 } else {
-	autoUpdater.checkForUpdates();
+/* 	autoUpdater.checkForUpdates();
 	autoUpdater.on('update-available', () => {
 		mainWindow?.webContents.send(IpcRendererMessages.AUTO_UPDATER_STATE, {
 			state: 'available',
@@ -112,7 +112,7 @@ if (!gotTheLock) {
 		});
 		app.relaunch();
 		autoUpdater.quitAndInstall();
-	});
+	}); */
 
 	// Mock auto-update download
 	// setTimeout(() => {
