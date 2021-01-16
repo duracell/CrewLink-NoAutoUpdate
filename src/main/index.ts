@@ -8,8 +8,8 @@ import { format as formatUrl } from 'url';
 import './hook';
 import { overlayWindow as electronOverlayWindow } from 'electron-overlay-window';
 import { initializeIpcHandlers, initializeIpcListeners } from './ipc-handlers';
-import { IpcRendererMessages } from '../common/ipc-messages';
-import { ProgressInfo } from 'builder-util-runtime';
+//import { IpcRendererMessages } from '../common/ipc-messages';
+//import { ProgressInfo } from 'builder-util-runtime';
 import iohook from 'iohook';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -139,6 +139,7 @@ const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
 	app.quit();
 } else {
+	/*
 	autoUpdater.checkForUpdates();
 	autoUpdater.on('update-available', () => {
 		mainWindow?.webContents.send(IpcRendererMessages.AUTO_UPDATER_STATE, {
@@ -164,6 +165,7 @@ if (!gotTheLock) {
 		app.relaunch();
 		autoUpdater.quitAndInstall();
 	});
+	*/
 
 	// Mock auto-update download
 	// setTimeout(() => {
